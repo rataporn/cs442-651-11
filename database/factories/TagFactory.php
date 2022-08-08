@@ -3,12 +3,11 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use \App\Models\Comment;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tag>
  */
-class CommentFactory extends Factory
+class TagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +17,7 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'post_id' => $this->faker->numberBetween(1,200),
-            'message' => fake()->realText(120)
+            'name' => fake()->word()
         ];
     }
 }

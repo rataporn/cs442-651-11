@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use \App\Models\Comment;
+use App\Models\Post;
+use App\Models\Tag;
 
-class CommentSeeder extends Seeder
+class PostTagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +16,8 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        Comment::factory(200)->create();
+        foreach (Post::all() as $post) {
+            $post->tags()->saveMany(Tag::get()->random(rand(1,3)));
+        }
     }
 }
